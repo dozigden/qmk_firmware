@@ -14,9 +14,16 @@
 #define MATRIX_COLS 5
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { B3, B2 }
-#define MATRIX_COL_PINS { D4, C6, D7, E6, B4 }
+#define MATRIX_ROW_PINS { D0, D4 }
+#define MATRIX_COL_PINS { C6, D7, E6, B4, D1 }
 #define UNUSED_PINS
+
+/* Audio pins */
+#define AUDIO_PIN B6
+
+/* Encoder pins */
+#define ENCODERS_PAD_A { F5 }
+#define ENCODERS_PAD_B { F6 }
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
