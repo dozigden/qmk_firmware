@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       KC_NONUS_BSLASH,KC_LGUI,                                                       KC_LBRC, KC_RBRC,
                               KC_BSPC,_______,                                        _______,KC_DEL,
                                       KC_SPC,RAISE,                           LOWER, KC_SFTENT,
-                                      KC_LALT, KC_LGUI,                       KC_LCTL, KC_LALT
+                                      KC_LALT, KC_LEAD,                       KC_LCTL, KC_LALT
   ),
 
   [_LOWER] = LAYOUT_5x6(
@@ -47,3 +47,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                _______,_______,            _______,KC_LALT
   ),
 };
+
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_ONE_KEY(KC_ESC) {
+      register_code(KC_LGUI);
+      register_code(KC_GRAVE);
+      unregister_code(KC_GRAVE);
+      unregister_code(KC_LGUI);
+    }
+    SEQ_TWO_KEYS(KC_LBRC, KC_T) {
+      SEND_STRING("[");
+      register_code(KC_LCTL);
+      register_code(KC_B);
+      unregister_code(KC_B);
+      unregister_code(KC_LCTL);
+      SEND_STRING("Todo");
+      register_code(KC_LCTL);
+      register_code(KC_B);
+      unregister_code(KC_B);
+      unregister_code(KC_LCTL);
+      SEND_STRING("] ");
+    }
+    SEQ_TWO_KEYS(KC_LBRC, KC_D) {
+      register_code(KC_LCTL);
+      register_code(KC_B);
+      unregister_code(KC_B);
+      unregister_code(KC_LCTL);
+      SEND_STRING("Done");
+    }
+    SEQ_TWO_KEYS(KC_LBRC, KC_I) {
+      SEND_STRING("InProgress");
+    }
+    SEQ_THREE_KEYS(KC_L, KC_S, KC_C) {
+      SEND_STRING("luke\"savageconclave.com");
+    }
+  }
+}

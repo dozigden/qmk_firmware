@@ -20,6 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define USE_SERIAL
 
+#define LEADER_TIMEOUT 500
+#define LEADER_PER_KEY_TIMING
+
 #define SPLIT_HAND_PIN B7
 // #define MASTER_LEFT
 // #define MASTER_RIGHT
