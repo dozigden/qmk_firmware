@@ -13,8 +13,8 @@ float off_sound[][2] = SONG(AUDIO_OFF_SOUND);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [NORMAL_LAYER] = LAYOUT(KC_MUTE, KC_VOLU, KC_F13, KC_F14, KC_F15, 
-			              TO(1), KC_VOLD, KC_F16, KC_F17, KC_F18),
+    [NORMAL_LAYER] = LAYOUT(KC_MUTE, KC_VOLU, KC_F13, KC_F14, KC_Q, 
+			              TO(1), KC_VOLD, KC_F16, KC_F17, KC_PSCR),
 
     [MEDIA_LAYER]  = LAYOUT(KC_TRNS, KC_CALC, KC_MPRV, KC_MNXT, KC_VOLU, 
 			              TO(0), KC_TRNS, KC_MSTP, KC_MPLY, KC_VOLD)
